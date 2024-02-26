@@ -1,40 +1,59 @@
-Now working on simple shell
+#SIMPLE SHELL
 
-# 0x16. C - Simple Shell
-This project is an implementation of the shell created as the final project for the C code sprint at **ALX Africa**.
+Simple shell 0.1 mandatory Write a UNIX command line interpreter.
+Usage: simple_shell Your Shell should:
 
-## Table of contents :clipboard:
-- [Description]
-- [Installation]
-- [Usage]
-- [Example]
-- [Contributors]
-- [Acknowledgements]
-## Description :e-mail:
-This is a shell written in [C](https://en.wikipedia.org/wiki/C_(programming_language)).
-It is based on [the Thompson Shell](https://en.wikipedia.org/wiki/Thompson_shell).
-## Installation :wrench:
-Clone the below repository and compile the files into an executable using the GCC compiler.
-https://github.com/yeshan111/simple_shell.git
-##Environment :evergreen_tree::evergreen_tree:
-Our shell was built and tested on  Ubuntu 14.04 LTS.
-### Basic usage :bulb:
-- First, [fork this repository](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo).
-- Then [clone it to your local machine](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository).
-- Create an executable by running the following command:
-- `gcc -Wall -Werror -Wextra -pedantic *.c -o hsh`
-- From there, type in the following command and press your enter button.
-- `./hsh`
-- Final step: ENJOY!
-## Example :computer:
-```
-ls -la
-```
-![screenshot of shell](https://user-images.githubusercontent.com/30075600/114757753-e50c2180-9d64-11eb-95ea-fb9bba776c8c.png)
-## Contributors :sunglasses::muscle:
-* [**Mensah Selasi**](https://github.com/mensah-selasi)
-## Acknowledgments :pray:
-- Our fellow cohort members.
-- The creators of the C language.
-- Our software engineer-in-residence.
-- Betty Holberton.
+Display a prompt and wait for the user to type a command. A command line always ends with a new line. The prompt is displayed again each time a command has been executed. The command lines are simple, no semicolons, no pipes, no redirections or any other advanced features. The command lines are made only of one word. No arguments will be passed to programs. If an executable cannot be found, print an error message and display the prompt again. Handle errors. You have to handle the “end of file” condition (Ctrl+D) You don’t have to:
+
+use the PATH implement built-ins handle special characters : ", ', `, , *, &, # be able to move the cursor handle commands with arguments execve will be the core part of your Shell, don’t forget to pass the environ to it…
+
+Simple shell 0.2 mandatory Simple shell 0.1 +
+Handle command lines with arguments Repo:
+
+GitHub repository: simple_shell
+
+Simple shell 0.3 mandatory Simple shell 0.2 +
+Handle the PATH fork must not be called if the command doesn’t exist
+
+Simple shell 0.4 mandatory Simple shell 0.3 +
+Implement the exit built-in, that exits the shell Usage: exit You don’t have to handle any argument to the built-in exit
+
+Simple shell 1.0 mandatory Simple shell 0.4 +
+Implement the env built-in, that prints the current environment
+
+Simple shell 0.1.1 #advanced Simple shell 0.1 +
+Write your own getline function Use a buffer to read many chars at once and call the least possible the read system call You will need to use static variables You are not allowed to use getline You don’t have to: be able to move the cursor
+
+Simple shell 0.2.1 #advanced Simple shell 0.2 +
+You are not allowed to use strtok
+
+Simple shell 0.4.1 #advanced Simple shell 0.4 +
+handle arguments for the built-in exit Usage: exit status, where status is an integer used to exit the shell
+
+setenv, unsetenv #advanced Simple shell 1.0 +
+Implement the setenv and unsetenv builtin commands
+
+setenv Initialize a new environment variable, or modify an existing one Command syntax: setenv VARIABLE VALUE Should print something on stderr on failure unsetenv Remove an environment variable Command syntax: unsetenv VARIABLE Should print something on stderr on failure
+
+cd #advanced Simple shell 1.0 +
+Implement the builtin command cd:
+
+Changes the current directory of the process. Command syntax: cd [DIRECTORY] If no argument is given to cd the command must be interpreted like cd $HOME You have to handle the command cd - You have to update the environment variable PWD when you change directory man chdir, man getcwd
+
+; #advanced Simple shell 1.0 +
+Handle the commands separator ;
+
+&& and || #advanced Simple shell 1.0 +
+
+alias #advanced Simple shell 1.0 +
+
+Implement the alias builtin command Usage: alias [name[='value'] ...] alias: Prints a list of all aliases, one per line, in the form name='value' alias name [name2 ...]: Prints the aliases name, name2, etc 1 per line, in the form name='value' alias name='value' [...]: Defines an alias for each name whose value is given. If name is already an alias, replaces its value with value
+
+Variables #advanced Simple shell 1.0 +
+Handle variables replacement Handle the $? variable Handle the $$ variable
+
+Comments #advanced Simple shell 1.0 +
+Handle comments (#)
+
+File as input #advanced Simple shell 1.0 +
+Usage: simple_shell [filename] Your shell can take a file as a command line argument The file contains all the commands that your shell should run before exiting The file should contain one command per line In this mode, the shell should not print a prompt and should not read from stdin
